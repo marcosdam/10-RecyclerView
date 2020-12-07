@@ -13,7 +13,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/txtMarcaFila"
+            android:id="@+id/txtVelocidadFila"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -51,7 +51,7 @@
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/txtVelocidadFila"
+            android:id="@+id/txtMarcaFila"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

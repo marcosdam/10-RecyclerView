@@ -2,6 +2,7 @@ package com.marcosledesma.a10_recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,16 +29,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Inicializar
-        filaOrdenador = R.layout.ordenador_item;
+        filaOrdenador = R.layout.ordenador_card;
         listaOrdenadores = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerMain);
 
         inicializaDatos();
 
         // Permite tener diferentes Layouts (Contenedores -> "estructurantes")
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);    // Vertical por defecto
-        // Asignarlo al recyclerView (Vertical, en línea, y solo 1 elemento por fila)
-        recyclerView.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManagerVertical = new LinearLayoutManager(this);    // Vertical por defecto
+        LinearLayoutManager linearLayoutManagerHorizontal = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        // Permite elegir cantidad de filas (spanCount) -> Se comportará como un Linear Vertical
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         // Iniciar adapter
         adapter = new OrdenadoresAdapter(listaOrdenadores, filaOrdenador, this);

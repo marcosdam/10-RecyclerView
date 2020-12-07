@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,6 +57,22 @@ public class OrdenadoresAdapter extends RecyclerView.Adapter<OrdenadoresAdapter.
         holder.txtModelo.setText(ordenador.getModelo());
         holder.txtRam.setText(String.valueOf(ordenador.getRam()));
         holder.txtVelocidadProcesador.setText(String.valueOf(ordenador.getVelocidadProcesador()));
+
+        // CARD
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "CARD "+position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // txtMarca (dentro de la CARD)
+        holder.txtMarca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Marca "+position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -70,13 +87,15 @@ public class OrdenadoresAdapter extends RecyclerView.Adapter<OrdenadoresAdapter.
     public static class OrdenadorVH extends RecyclerView.ViewHolder{
         // Elementos de la fila
         TextView txtMarca, txtModelo, txtRam, txtVelocidadProcesador;
+        View card;
         // Instanciarlo en su constructor
         public OrdenadorVH(@NonNull View itemView) {
             super(itemView);
-            txtMarca = itemView.findViewById(R.id.txtMarcaFila);
+            txtMarca = itemView.findViewById(R.id.txtVelocidadFila);
             txtModelo = itemView.findViewById(R.id.txtModeloFila);
             txtRam = itemView.findViewById(R.id.txtRamFila);
-            txtVelocidadProcesador = itemView.findViewById(R.id.txtVelocidadFila);
+            txtVelocidadProcesador = itemView.findViewById(R.id.txtMarcaFila);
+            card = itemView;
         }
     }
 }
