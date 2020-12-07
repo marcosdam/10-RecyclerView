@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManagerVertical = new LinearLayoutManager(this);    // Vertical por defecto
         LinearLayoutManager linearLayoutManagerHorizontal = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         // Permite elegir cantidad de filas (spanCount) -> Se comportará como un Linear Vertical
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(linearLayoutManagerVertical);
 
         // Iniciar adapter
         adapter = new OrdenadoresAdapter(listaOrdenadores, filaOrdenador, this);
