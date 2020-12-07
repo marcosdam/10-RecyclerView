@@ -37,6 +37,8 @@ public class OrdenadoresAdapter extends RecyclerView.Adapter<OrdenadoresAdapter.
     public OrdenadorVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //return null;
         View ordenadorItem = LayoutInflater.from(context).inflate(resource, null);
+        // Modificar disposición aquí (Match parent) - Por algún motivo no funciona en el xml
+        ordenadorItem.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         // Retornará un nuevo OrdenadorVH pasándole el ítem del ordenador
         return new OrdenadorVH(ordenadorItem);
     }
